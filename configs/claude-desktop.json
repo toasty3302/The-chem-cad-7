@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "chemcad": {
+      "command": "C:\\path\\to\\chemcad-mcp\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "chemcad_mcp.server"],
+      "env": {"CHEMCAD_MCP_TIMEOUT": "180"}
+    }
+  }
+}

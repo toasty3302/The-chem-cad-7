@@ -1,0 +1,1 @@
+"""CHEMCAD automation bridge."""

@@ -1,0 +1,4037 @@
+{
+  "library": "CHEMCAD",
+  "interfaces": {
+    "IVBErrorLicenseInfo": {
+      "type": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": []
+      },
+      "held_licenses": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "lost_licenses": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      }
+    },
+    "IVBNotificationInfo": {
+      "type": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": []
+      },
+      "context": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": []
+      },
+      "get_license_info": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      }
+    },
+    "IVBErrorNotify": {
+      "notification": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": [
+          {
+            "name": "event",
+            "vartype": 9,
+            "flags": 1
+          }
+        ]
+      }
+    },
+    "ICHEMCADVBServer": {
+      "LoadJob": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 16,
+        "parameters": [
+          {
+            "name": "bstrJobPath",
+            "vartype": 16392,
+            "flags": 0
+          }
+        ]
+      },
+      "RunJob": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 16,
+        "parameters": []
+      },
+      "GetFlowsheet": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetUnitOpInfo": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetUnitOpSpecUnitConversion": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetStreamInfo": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetStreamUnitConversion": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetStreamProperty": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetKValues": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetEnthalpy": {
+        "dispid": 10,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetFlash": {
+        "dispid": 11,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetEngUnitConversion": {
+        "dispid": 12,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetCompPPData": {
+        "dispid": 13,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetWorkDir": {
+        "dispid": 14,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": []
+      },
+      "SwitchWorkDir": {
+        "dispid": 15,
+        "invoke_kind": 1,
+        "return_type": 16,
+        "parameters": [
+          {
+            "name": "bstrNewWorkDir",
+            "vartype": 16392,
+            "flags": 0
+          }
+        ]
+      },
+      "GetNoOfJobsInWorkDir": {
+        "dispid": 16,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetJobAt": {
+        "dispid": 17,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": [
+          {
+            "name": "jobIndex",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetNoOfCasesInJob": {
+        "dispid": 18,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "jobName",
+            "vartype": 16392,
+            "flags": 0
+          }
+        ]
+      },
+      "GetCaseAt": {
+        "dispid": 19,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": [
+          {
+            "name": "jobName",
+            "vartype": 16392,
+            "flags": 0
+          },
+          {
+            "name": "caseIndex",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "SSRunAllUnits": {
+        "dispid": 20,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "SSRunSelectedUnits": {
+        "dispid": 21,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitIDs",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "DynamicRunAllSteps": {
+        "dispid": 22,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "DynamicRunStep": {
+        "dispid": 23,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "DynamicRestoreToInitialState": {
+        "dispid": 24,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": []
+      },
+      "GetDynamicTimeInMinute": {
+        "dispid": 25,
+        "invoke_kind": 1,
+        "return_type": 4,
+        "parameters": []
+      },
+      "GetDynamicTimeStepInMinute": {
+        "dispid": 26,
+        "invoke_kind": 1,
+        "return_type": 4,
+        "parameters": []
+      },
+      "GetSimulationMode": {
+        "dispid": 27,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "TakeProcessSnapShot": {
+        "dispid": 28,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": [
+          {
+            "name": "pathName",
+            "vartype": 16392,
+            "flags": 0
+          }
+        ]
+      },
+      "LoadProcessSnapShot": {
+        "dispid": 29,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": [
+          {
+            "name": "pathName",
+            "vartype": 16392,
+            "flags": 0
+          }
+        ]
+      },
+      "PauseSimulation": {
+        "dispid": 30,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": []
+      },
+      "SetCurrentAsInitialState": {
+        "dispid": 31,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": []
+      },
+      "OTSGetTimeScale": {
+        "dispid": 32,
+        "invoke_kind": 1,
+        "return_type": 4,
+        "parameters": []
+      },
+      "OTSSetTimeScale": {
+        "dispid": 33,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "timeScale",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "ShowRunTimeMessages": {
+        "dispid": 34,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": []
+      },
+      "SSRunOptimization": {
+        "dispid": 35,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "runMode",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetAppVersion": {
+        "dispid": 36,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "EditUnitOpPar": {
+        "dispid": 37,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "SSRunOptimizationFile": {
+        "dispid": 38,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "filePath",
+            "vartype": 16392,
+            "flags": 0
+          },
+          {
+            "name": "runMode",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "SSGetOptimizationVariables": {
+        "dispid": 39,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "bstrOptFile",
+            "vartype": 16392,
+            "flags": 0
+          },
+          {
+            "name": "nVars",
+            "vartype": 16386,
+            "flags": 0
+          },
+          {
+            "name": "fVarIniVal",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "fVarLB",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "fVarUB",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "nCons",
+            "vartype": 16386,
+            "flags": 0
+          },
+          {
+            "name": "fConsLB",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "fConsUB",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "SSPutOptimizationVariables": {
+        "dispid": 40,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "bstrOptFile",
+            "vartype": 16392,
+            "flags": 0
+          },
+          {
+            "name": "nVars",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "fVarIniVal",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "fVarLB",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "fVarUB",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "nCons",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "fConsLB",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "fConsUB",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "SaveSimulation": {
+        "dispid": 41,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "CloseSimulation": {
+        "dispid": 42,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "SSRunNamedSequence": {
+        "dispid": 43,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "SequenceName",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "LoadSim": {
+        "dispid": 44,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "sim_name",
+            "vartype": 12,
+            "flags": 1
+          },
+          {
+            "name": "read_only",
+            "vartype": 12,
+            "flags": 1
+          }
+        ]
+      },
+      "pid": {
+        "dispid": 45,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": []
+      },
+      "GetDataMaps": {
+        "dispid": 46,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "SaveAsInitialState": {
+        "dispid": 47,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "DynamicRunFromCurrentTime": {
+        "dispid": 48,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetCurrentOperationalStep": {
+        "dispid": 49,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetNumberOfOperationalSteps": {
+        "dispid": 50,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "SetNumberOfOperationalSteps": {
+        "dispid": 51,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "num_steps",
+            "vartype": 2,
+            "flags": 1
+          }
+        ]
+      },
+      "GetOperationalStep": {
+        "dispid": 52,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "op_step",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "time_len",
+            "vartype": 16388,
+            "flags": 3
+          },
+          {
+            "name": "time_step_size",
+            "vartype": 16388,
+            "flags": 3
+          },
+          {
+            "name": "stop_condition",
+            "vartype": 16386,
+            "flags": 3
+          },
+          {
+            "name": "stop_id",
+            "vartype": 16386,
+            "flags": 3
+          },
+          {
+            "name": "variable_id",
+            "vartype": 16386,
+            "flags": 3
+          },
+          {
+            "name": "component_id",
+            "vartype": 16386,
+            "flags": 3
+          },
+          {
+            "name": "dim_units",
+            "vartype": 16386,
+            "flags": 3
+          },
+          {
+            "name": "stop_mode",
+            "vartype": 16386,
+            "flags": 3
+          },
+          {
+            "name": "stop_val",
+            "vartype": 16388,
+            "flags": 3
+          },
+          {
+            "name": "tolerance",
+            "vartype": 16388,
+            "flags": 3
+          }
+        ]
+      },
+      "ChangeOperationalStep": {
+        "dispid": 53,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "op_step",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "time_len",
+            "vartype": 16388,
+            "flags": 1
+          },
+          {
+            "name": "time_step_size",
+            "vartype": 16388,
+            "flags": 1
+          },
+          {
+            "name": "stop_condition",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "stop_id",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "variable_id",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "component_id",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "dim_units",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "stop_mode",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "stop_val",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "tolerance",
+            "vartype": 4,
+            "flags": 1
+          }
+        ]
+      }
+    },
+    "IDualApplication": {
+      "Application": {
+        "dispid": 1,
+        "invoke_kind": 2,
+        "return_type": 9,
+        "parameters": []
+      },
+      "Parent": {
+        "dispid": 2,
+        "invoke_kind": 2,
+        "return_type": 9,
+        "parameters": []
+      },
+      "Name": {
+        "dispid": 3,
+        "invoke_kind": 2,
+        "return_type": 8,
+        "parameters": []
+      },
+      "VBAVersion": {
+        "dispid": 4,
+        "invoke_kind": 2,
+        "return_type": 8,
+        "parameters": []
+      },
+      "VBE": {
+        "dispid": 5,
+        "invoke_kind": 2,
+        "return_type": 9,
+        "parameters": []
+      },
+      "AppDiag": {
+        "dispid": 6,
+        "invoke_kind": 2,
+        "return_type": 8,
+        "parameters": []
+      }
+    },
+    "IDualDocument": {
+      "Application": {
+        "dispid": 1,
+        "invoke_kind": 2,
+        "return_type": 9,
+        "parameters": []
+      },
+      "Parent": {
+        "dispid": 2,
+        "invoke_kind": 2,
+        "return_type": 9,
+        "parameters": []
+      },
+      "Name": {
+        "dispid": 3,
+        "invoke_kind": 2,
+        "return_type": 8,
+        "parameters": []
+      },
+      "Save": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": []
+      },
+      "Diagnostic": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": []
+      }
+    },
+    "IFlash": {
+      "GetNoOfComponents": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": []
+      },
+      "DefineFeedStream": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "CalculateHPFlash": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "GetVaporStream": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "rateLbmol_Hr",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetMoleVaporFraction": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 4,
+        "parameters": []
+      },
+      "GetCalculatedHeatDuty": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 4,
+        "parameters": []
+      },
+      "CalculateTPFlash": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "CalculateVPFlash": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "moleVapFrac",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "CalculateVTFlash": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "moleVapFrac",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "tempR",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "GetKValues": {
+        "dispid": 10,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "kValues",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetIonRates": {
+        "dispid": 11,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "ionFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetLiquidStream": {
+        "dispid": 12,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "rateLbmol_Hr",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetTotalEnthalpy": {
+        "dispid": 13,
+        "invoke_kind": 1,
+        "return_type": 4,
+        "parameters": []
+      },
+      "GetTemperature": {
+        "dispid": 14,
+        "invoke_kind": 1,
+        "return_type": 4,
+        "parameters": []
+      },
+      "GetPressure": {
+        "dispid": 15,
+        "invoke_kind": 1,
+        "return_type": 4,
+        "parameters": []
+      }
+    },
+    "ICHEMCADEntry": {
+      "GetFlash": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetStreamUnitConversion": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetCurUnitOp": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetEnthalpy": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetKValues": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetFlowsheet": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetStreamInfo": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetStreamProperty": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetUnitOpInfo": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetUnitOpSpecUnitConversion": {
+        "dispid": 10,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetEngUnitConversion": {
+        "dispid": 11,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetCompPPData": {
+        "dispid": 12,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      },
+      "GetSaveWorkBookFlag": {
+        "dispid": 13,
+        "invoke_kind": 1,
+        "return_type": 16,
+        "parameters": []
+      },
+      "SetSaveWorkBookFlag": {
+        "dispid": 14,
+        "invoke_kind": 1,
+        "return_type": 16,
+        "parameters": [
+          {
+            "name": "bSaveAfterRun",
+            "vartype": 16,
+            "flags": 0
+          }
+        ]
+      },
+      "GetCurJobPath": {
+        "dispid": 15,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": []
+      },
+      "GetCurJobName": {
+        "dispid": 16,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": []
+      },
+      "GetProgPath": {
+        "dispid": 17,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": []
+      },
+      "GetWorkPath": {
+        "dispid": 18,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": []
+      },
+      "GetPoolPath": {
+        "dispid": 19,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": []
+      },
+      "get_current_time": {
+        "dispid": 20,
+        "invoke_kind": 1,
+        "return_type": 5,
+        "parameters": []
+      },
+      "get_delta_time": {
+        "dispid": 21,
+        "invoke_kind": 1,
+        "return_type": 5,
+        "parameters": []
+      },
+      "GetDataMaps": {
+        "dispid": 22,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      }
+    },
+    "IStreamUnitConversion": {
+      "DefineStreamInCurUserUnit": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "temp",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "pres",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "enth",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "flow",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "flowOption",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compFlow",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamInInternalUnit": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "rateLbmol_Hr",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamInCurUserUnit": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "temp",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "pres",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "enth",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "tMoleRate",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "tMassRate",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "tStdLVolRate",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "tStdVVolRate",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "compFlow",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "DefineStreamInInternalUnit": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetCurUserUnitString": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": [
+          {
+            "name": "tempUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "presUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "enthUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "tMoleRateUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "tMassRateUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "tStdLVolRateUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "tStdVVolRateUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "compUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "compCate",
+            "vartype": 16396,
+            "flags": 0
+          }
+        ]
+      },
+      "define_stream_current_engineering_units": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "flash_spec",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "temp",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "pres",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "enth",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "mvf",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "total_flow_spec",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "total_rate",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "comp_flow_spec",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "comp_rate",
+            "vartype": 12,
+            "flags": 1
+          }
+        ]
+      },
+      "get_stream_fixed_engineering_units": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "presPsia",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "rateLbmol_Hr",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      },
+      "get_stream_current_engineering_units": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "temp",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "pres",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "enth",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "mvf",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "total_rate_type",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "total_rate",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "comp_rate_type",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "compRate",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      },
+      "define_stream_fixed_engineering_units": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "flash_type",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "tempR",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "vapfrac",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 1
+          }
+        ]
+      },
+      "get_current_engineering_unit_labels": {
+        "dispid": 10,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "tempUnit",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "presUnit",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "enthUnit",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "total_flow_type",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "total_flow_unit",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "comp_rate_type",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "compUnit",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      }
+    },
+    "ICurUnitOp": {
+      "GetNoOfInlets": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetInletIDs": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "inletIDs",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetNoOfOutlets": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetOutletIDs": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "outletIDs",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetCurUnitOpID": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetLoopCount": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": []
+      },
+      "GetLoopLimit": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": []
+      },
+      "GetRerunFlowsheetFlag": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "SetRerunFlowsheetFlag": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "rerunIfOne",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetReactorLiquidPhase": {
+        "dispid": 10,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compLbmol",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetReactorVaporPhase": {
+        "dispid": 11,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compLbmol",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "SetRunTimeMessage": {
+        "dispid": 12,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "msg",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      }
+    },
+    "IEnthalpy": {
+      "GetNoOfComponents": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "DefineStream": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "CalculateLiquidEnthalpy": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 16388,
+            "flags": 0
+          }
+        ]
+      },
+      "CalculateVaporEnthalpy": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 16388,
+            "flags": 0
+          }
+        ]
+      }
+    },
+    "IKValues": {
+      "GetNoOfComponents": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "DefineLiquidStream": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "DefineVaporStreamComponentRates": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetKValues": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "kValues",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetIonRates": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "ionFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetActivityCoefficients": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "actCoef",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetFugacityCoefficients": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "fugCoef",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      }
+    },
+    "IStreamProperty": {
+      "GetNoOfComponents": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "DefineStream": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "tempR",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "moleVapFrac",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamProperty": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 4,
+        "parameters": [
+          {
+            "name": "propID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamPropertiesInUserUnits": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "streamProp",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "propUserUnits",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      }
+    },
+    "IUnitOpInfo": {
+      "GetUnitOpSpecArrayDimension": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetUnitOpSpecByID": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "unitOpSpec",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "PutUnitOpSpecByID": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "unitOpSpec",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetUnitOpLabelByID": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetUnitOpCategoryByID": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "unitOpCate",
+            "vartype": 16392,
+            "flags": 0
+          }
+        ]
+      },
+      "GetNoOfStagesByID": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetColumnHydraulicsFromSizing": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "columnType",
+            "vartype": 8,
+            "flags": 0
+          },
+          {
+            "name": "holdupLbmol",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "pressurePsia",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "floodPercent",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "SetColumnPressureProfile": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "pressurePsia",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetColumnStageData": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "stageID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "vaporLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "liquidLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "temperatureR",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "pressurePsia",
+            "vartype": 16388,
+            "flags": 0
+          }
+        ]
+      },
+      "GetUnitOpPar": {
+        "dispid": 10,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "parVal",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "PutUnitOpPar": {
+        "dispid": 11,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parVal",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "GetUnitOpParInCurUserUnit": {
+        "dispid": 12,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "parVal",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "PutUnitOpParInCurUserUnit": {
+        "dispid": 13,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parVal",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "GetKineticReactionPar": {
+        "dispid": 14,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "parVal",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "rxnNo",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compIdx",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "PutKineticReactionPar": {
+        "dispid": 15,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "rxnNo",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compIdx",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parVal",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "GetEquilibriumReactionPar": {
+        "dispid": 16,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "parVal",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "rxnNo",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compIdx",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "PutEquilibriumReactionPar": {
+        "dispid": 17,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "rxnNo",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compIdx",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parVal",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "OTSGetUnitOpPar": {
+        "dispid": 18,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "parVal",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "OTSPutUnitOpPar": {
+        "dispid": 19,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parVal",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "OTSGetUnitOpParInCurUserUnit": {
+        "dispid": 20,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "parVal",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "OTSPutUnitOpParInCurUserUnit": {
+        "dispid": 21,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parVal",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "SetFoulingFactors": {
+        "dispid": 22,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": [
+          {
+            "name": "unitID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "tFouling",
+            "vartype": 5,
+            "flags": 0
+          },
+          {
+            "name": "sFouling",
+            "vartype": 5,
+            "flags": 0
+          }
+        ]
+      },
+      "GetUnitOpRunTimeErrorCode": {
+        "dispid": 23,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetUnitOpRunTimeErrorStr": {
+        "dispid": 24,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetHeatExchangerReport": {
+        "dispid": 25,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": [
+          {
+            "name": "uop_id",
+            "vartype": 12,
+            "flags": 1
+          }
+        ]
+      }
+    },
+    "IHtxrReport": {
+      "unit_id": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": []
+      },
+      "unit_type": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": []
+      },
+      "get_report_value": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "report",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "report_section",
+            "vartype": 12,
+            "flags": 1
+          },
+          {
+            "name": "report_item",
+            "vartype": 12,
+            "flags": 1
+          },
+          {
+            "name": "value",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      }
+    },
+    "IStreamInfo": {
+      "GetNoOfComponents": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "PutStreamByID": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "tempR",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "moleVapFrac",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamByID": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "tempR",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "presPsia",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "moleVapFrac",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "enthBtu_Hr",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "compFlowLbmol_Hr",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetIDsOfComponents": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compIDs",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetComponentNameByPosBaseOne": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": [
+          {
+            "name": "compPos",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetComponentIDByPosBaseOne": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compPos",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamLabelByID": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 8,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "ReflashStream": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "PutStreamInCurUserUnitByID": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "flashMode",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "temp",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "pres",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "enth",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "mvf",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "tRate",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "tRateOption",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compRate",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamInCurUserUnitByID": {
+        "dispid": 10,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "temp",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "pres",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "enth",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "mvf",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "tMoleRate",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "tMassRate",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "tStdLVolRate",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "tStdVVolRate",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "compRate",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetCurUserUnitString": {
+        "dispid": 11,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": [
+          {
+            "name": "tempUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "presUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "enthUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "tMoleRateUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "tMassRateUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "tStdLVolRateUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "tStdVVolRateUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "compUnit",
+            "vartype": 16396,
+            "flags": 0
+          },
+          {
+            "name": "compCate",
+            "vartype": 16396,
+            "flags": 0
+          }
+        ]
+      },
+      "OTSGetStreamPar": {
+        "dispid": 12,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "parVal",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "OTSPutStreamPar": {
+        "dispid": 13,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parVal",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "OTSGetStreamParInUserUnit": {
+        "dispid": 14,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "parVal",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "OTSPutStreamParInUserUnit": {
+        "dispid": 15,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parVal",
+            "vartype": 4,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamCost": {
+        "dispid": 16,
+        "invoke_kind": 1,
+        "return_type": 16,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "costType",
+            "vartype": 16386,
+            "flags": 0
+          },
+          {
+            "name": "costVal",
+            "vartype": 16388,
+            "flags": 0
+          }
+        ]
+      },
+      "SetStreamCost": {
+        "dispid": 17,
+        "invoke_kind": 1,
+        "return_type": 16,
+        "parameters": [
+          {
+            "name": "costType",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "costVal",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetParticleSizeDistribution": {
+        "dispid": 18,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "solidCompID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "noOfCuts",
+            "vartype": 16386,
+            "flags": 0
+          },
+          {
+            "name": "particleSizes",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "weightFractions",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "PutParticleSizeDistribution": {
+        "dispid": 19,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "solidCompID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "noOfCuts",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "particleSizes",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "weightFractions",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetSolids": {
+        "dispid": 20,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "solidCompIDs",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "PutSolidFlag": {
+        "dispid": 21,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "nSize",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "solidCompIDs",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "bSetFlag",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "put_stream_current_engineering_units": {
+        "dispid": 22,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "flash_spec",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "temp",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "pres",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "enth",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "mvf",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "total_flow_spec",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "total_rate",
+            "vartype": 4,
+            "flags": 1
+          },
+          {
+            "name": "comp_flow_spec",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "comp_rate",
+            "vartype": 12,
+            "flags": 1
+          }
+        ]
+      },
+      "get_stream_current_engineering_units": {
+        "dispid": 23,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "temp",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "pres",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "enth",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "mvf",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "total_spec",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "total_rate",
+            "vartype": 16388,
+            "flags": 2
+          },
+          {
+            "name": "comp_spec",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "comp_rate",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      },
+      "get_current_engineering_unit_labels": {
+        "dispid": 24,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "tempUnit",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "presUnit",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "enthUnit",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "total_flow_type",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "total_flow_unit",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "comp_rate_type",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "compUnit",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      }
+    },
+    "IFlowsheet": {
+      "GetNoOfStreams": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetNoOfUnitOps": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetAllStreamIDs": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "idArray",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetAllUnitOpIDs": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "idArray",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamCountsToUnitOp": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "nInlets",
+            "vartype": 16386,
+            "flags": 0
+          },
+          {
+            "name": "nOutlets",
+            "vartype": 16386,
+            "flags": 0
+          }
+        ]
+      },
+      "GetStreamIDsToUnitOp": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "idArray",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetSourceAndTargetForStream": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "streamID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "sourceID",
+            "vartype": 16386,
+            "flags": 0
+          },
+          {
+            "name": "targetID",
+            "vartype": 16386,
+            "flags": 0
+          }
+        ]
+      },
+      "GetNoOfFeedStreams": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetNoOfProductStreams": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetFeedStreamIDs": {
+        "dispid": 10,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "idArray",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetProductStreamIDs": {
+        "dispid": 11,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "idArray",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetInletStreamIDsToUnitOp": {
+        "dispid": 12,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "idInlets",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetOutletStreamIDsToUnitOp": {
+        "dispid": 13,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "idOutlets",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetDynamicTime": {
+        "dispid": 14,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "dynTime",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "timeUnit",
+            "vartype": 16392,
+            "flags": 0
+          }
+        ]
+      },
+      "GetNoOfCutStreams": {
+        "dispid": 15,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetCutStreamsIDs": {
+        "dispid": 16,
+        "invoke_kind": 1,
+        "return_type": 12,
+        "parameters": []
+      }
+    },
+    "IUnitOpSpecUnitConversion": {
+      "FromInternalUnitsToCurUserUnits": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "specInInternal",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "specInCurUser",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "FromCurUserUnitsToInternalUnits": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "specInCurUser",
+            "vartype": 12,
+            "flags": 0
+          },
+          {
+            "name": "specInInternal",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "GetUnitOpSpecArrayDimension": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetCurUserUnitString": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "parIndex",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "unitString",
+            "vartype": 16392,
+            "flags": 0
+          },
+          {
+            "name": "paramName",
+            "vartype": 16392,
+            "flags": 0
+          }
+        ]
+      },
+      "GetNoOfParameters": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "unitOpID",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      }
+    },
+    "IEngUnitConversion": {
+      "FromInternalUnitToCurUserUnit": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "engUnitID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "valueInInternal",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "valueInUser",
+            "vartype": 16388,
+            "flags": 0
+          },
+          {
+            "name": "userUnitString",
+            "vartype": 16392,
+            "flags": 0
+          }
+        ]
+      },
+      "FromCurUserUnitToInternalUnit": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "engUnitID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "valueInUser",
+            "vartype": 4,
+            "flags": 0
+          },
+          {
+            "name": "valueInInternal",
+            "vartype": 16388,
+            "flags": 0
+          }
+        ]
+      }
+    },
+    "ICompPPData": {
+      "GetDataInInternalUnit": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compPos",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compPPID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "value",
+            "vartype": 16388,
+            "flags": 0
+          }
+        ]
+      },
+      "GetNoComponents": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "GetData": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compPos",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compPPID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compPPVals",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "PutData": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compPos",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compPPID",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compPPVals",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "SaveUserCompData": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compPos",
+            "vartype": 2,
+            "flags": 0
+          }
+        ]
+      },
+      "GetBIP": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compPos1",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compPos2",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "bipVals",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "PutBIP": {
+        "dispid": 10,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": [
+          {
+            "name": "compPos1",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "compPos2",
+            "vartype": 2,
+            "flags": 0
+          },
+          {
+            "name": "bipVals",
+            "vartype": 12,
+            "flags": 0
+          }
+        ]
+      },
+      "SaveBIP": {
+        "dispid": 11,
+        "invoke_kind": 1,
+        "return_type": 24,
+        "parameters": []
+      }
+    },
+    "IDataMap": {
+      "num_datamaps": {
+        "dispid": 1,
+        "invoke_kind": 1,
+        "return_type": 2,
+        "parameters": []
+      },
+      "simulation_datamaps_before_run": {
+        "dispid": 2,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "num",
+            "vartype": 16386,
+            "flags": 2
+          },
+          {
+            "name": "direction",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "datamap_indexes",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      },
+      "simulation_datamaps_after_run": {
+        "dispid": 3,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "num",
+            "vartype": 16386,
+            "flags": 2
+          },
+          {
+            "name": "direction",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "datamap_indexes",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      },
+      "num_datamap_items": {
+        "dispid": 4,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "datamap_index",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "num_items",
+            "vartype": 16386,
+            "flags": 2
+          }
+        ]
+      },
+      "get_datamap_item_value": {
+        "dispid": 5,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "datamap_index",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "datamap_item",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "direction",
+            "vartype": 16387,
+            "flags": 2
+          },
+          {
+            "name": "workbook",
+            "vartype": 16392,
+            "flags": 2
+          },
+          {
+            "name": "worksheet",
+            "vartype": 16392,
+            "flags": 2
+          },
+          {
+            "name": "cell",
+            "vartype": 16392,
+            "flags": 2
+          },
+          {
+            "name": "value",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      },
+      "set_datamap_item_value": {
+        "dispid": 6,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "datamap_index",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "datamap_item",
+            "vartype": 2,
+            "flags": 1
+          },
+          {
+            "name": "value",
+            "vartype": 12,
+            "flags": 1
+          }
+        ]
+      },
+      "unit_datamaps_before_run": {
+        "dispid": 7,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "unit_id",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "num",
+            "vartype": 16386,
+            "flags": 2
+          },
+          {
+            "name": "direction",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "datamap_indexes",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      },
+      "unit_datamaps_after_run": {
+        "dispid": 8,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "unit_id",
+            "vartype": 3,
+            "flags": 1
+          },
+          {
+            "name": "num",
+            "vartype": 16386,
+            "flags": 2
+          },
+          {
+            "name": "direction",
+            "vartype": 16396,
+            "flags": 2
+          },
+          {
+            "name": "datamap_indexes",
+            "vartype": 16396,
+            "flags": 2
+          }
+        ]
+      },
+      "get_datamap_execution_flag": {
+        "dispid": 9,
+        "invoke_kind": 1,
+        "return_type": 3,
+        "parameters": [
+          {
+            "name": "mode",
+            "vartype": 16387,
+            "flags": 2
+          }
+        ]
+      }
+    }
+  },
+  "constants": {
+    "HX_N_BAFFLES": 0,
+    "HX_COEF_SHL": 1,
+    "HX_DP_SHL": 2,
+    "HX_DP_TUB": 3,
+    "HX_COEF_TUB": 4,
+    "HX_U_TOTAL": 5,
+    "HX_U_CLEAN": 6,
+    "HX_U_SERVICE": 7,
+    "HX_RESIS_WALL": 8,
+    "HX_LMTD_TOTAL": 9,
+    "HX_LMTD_FACTOTR": 10,
+    "HX_MEAN_T_TUB": 11,
+    "HX_MEAN_T_SHL": 12,
+    "HX_VEL_TUB": 13,
+    "HX_VEL_SHL": 14,
+    "HX_AREA_TOT": 15,
+    "HX_AREA_ACT": 16,
+    "HX_AREA_REQ": 17,
+    "HX_TUB_LENGTH": 18,
+    "HX_TUB_LGT_EFF": 19,
+    "HX_QTOTAL": 20,
+    "HX_FLOW_AREA": 21,
+    "HX_REYNOLD_SHL": 22,
+    "HX_RHOV2_NOZIN": 23,
+    "HX_VEL_CROSS": 24,
+    "HX_VEL_WIN": 25,
+    "HX_VEL_END": 26,
+    "HX_IDL_VEL_CRS": 27,
+    "HX_IDL_VEL_WIN": 28,
+    "HX_C_STRM_FACTOR": 29,
+    "HX_B_STRM_FACTOR": 30,
+    "HX_T_STRM_FACTOR": 31,
+    "HX_S_STRM_FACTOR": 32,
+    "HX_W_STRM_FACTOR": 33,
+    "HX_REYNOLD_TUB": 34,
+    "HX_SHL_NOZ_DIN": 35,
+    "HX_SHL_NOZ_DPIN": 36,
+    "HX_SHL_NOZ_DOUT": 37,
+    "HX_SHL_NOZ_DPOUT": 38,
+    "HX_TUB_NOZ_DIN": 39,
+    "HX_TUB_NOZ_DPIN": 40,
+    "HX_TUB_NOZ_DOUT": 41,
+    "HX_TUB_NOZ_DPOUT": 42,
+    "HX_MASS_TOT": 43,
+    "HX_OUT_VAP_RATE": 44,
+    "HX_RECIRC_RATE": 45,
+    "HX_VEL_INLET": 46,
+    "HX_VEL_OUTLET": 47,
+    "ZONE_REGIME_ID": 48,
+    "ZONE_U_ALL_BTUHRFT2F": 49,
+    "ZONE_U_TUBE_BTUHRFT2F": 50,
+    "ZONE_U_T_SHEAR_BTUHRFT2F": 51,
+    "ZONE_U_T_GRAV_BTUHRFT2F": 52,
+    "ZONE_U_T_GAS_BTUHRFT2F": 53,
+    "ZONE_T_VAP_RES_FRAC": 54,
+    "ZONE_T_SHEAR_RE": 55,
+    "ZONE_T_GRAV_RE": 56,
+    "ZONE_U_SHELL_BTUHRFT2F": 57,
+    "ZONE_U_S_SHEAR_BTUHRFT2F": 58,
+    "ZONE_U_S_GRAV_BTUHRFT2F": 59,
+    "ZONE_U_S_GAS_BTUHRFT2F": 60,
+    "ZONE_S_VAP_RES_FRAC": 61,
+    "ZONE_S_SHEAR_RE": 62,
+    "ZONE_S_GRAV_RE": 63,
+    "ZONE_HFLUX_BTUFT2": 64,
+    "ZONE_TUBE_HF": 65,
+    "ZONE_TUBE_CHF": 66,
+    "ZONE_SHELL_HF": 67,
+    "ZONE_SHELL_CHF": 68,
+    "ZONE_TS_TAVG_R": 69,
+    "ZONE_SS_TAVG_R": 70,
+    "ZONE_LMTD_R": 71,
+    "ZONE_TS_TSAT_R": 72,
+    "ZONE_SS_TSAT_R": 73,
+    "ZONE_TS_TWALL_R": 74,
+    "ZONE_SS_TWALL_R": 75,
+    "ZONE_TS_GASV_FTS": 76,
+    "ZONE_TS_LIQV_FTS": 77,
+    "ZONE_TS_VEL_FTS": 78,
+    "ZONE_SS_GASV_FTS": 79,
+    "ZONE_SS_LIQV_FTS": 80,
+    "ZONE_SS_VEL_FTS": 81,
+    "ZONE_TS_PAVG_PSIA": 82,
+    "ZONE_SS_PAVG_PSIA": 83,
+    "ZONE_TS_DP_ACC_PSI": 84,
+    "ZONE_TS_DP_GR_PSI": 85,
+    "ZONE_TS_DP_FR_PSI": 86,
+    "ZONE_TS_DP_PSI": 87,
+    "ZONE_TS_PSAT_PSIA": 88,
+    "ZONE_SS_PSAT_PSIA": 89,
+    "ZONE_TS_HEAD_FT": 90,
+    "ZONE_TS_VFMASS": 91,
+    "ZONE_TS_XTT": 92,
+    "ZONE_TS_RHO_AVG_LBFT3": 93,
+    "ZONE_TS_RHO_2PH_LBFT3": 94,
+    "ZONE_SS_VFMASS": 95,
+    "ZONE_SS_XTT": 96,
+    "ZONE_SS_RHO_AVG_LBFT3": 97,
+    "ZONE_SS_RHO_2PH_LBFT3": 98,
+    "ZONE_SS_DP_ACC_PSI": 99,
+    "ZONE_SS_DP_GR_PSI": 100,
+    "ZONE_SS_DP_FR_PSI": 101,
+    "ZONE_SS_DP_PSI": 102,
+    "ZONE_SS_XTT_CROSS": 103,
+    "ZONE_AREA_FT2": 104,
+    "ZONE_SS_FLOWAREA_IN2": 105,
+    "ZONE_TS_RE_GAS": 106,
+    "ZONE_TS_RE_LIQ": 107,
+    "ZONE_TS_RE": 108,
+    "ZONE_SS_RE_GAS": 109,
+    "ZONE_SS_RE_LIQ": 110,
+    "ZONE_SS_RE": 111,
+    "ZONE_TS_PR_GAS": 112,
+    "ZONE_TS_PR_LIQ": 113,
+    "ZONE_TS_PR": 114,
+    "ZONE_SS_PR_GAS": 115,
+    "ZONE_SS_PR_LIQ": 116,
+    "ZONE_SS_PR": 117,
+    "ZONE_TUBE_TMETAL_R": 118,
+    "ZONE_TS_T_NUCL_R": 119,
+    "ZONE_FALLINGFILM_RE_MIN": 120,
+    "ZONE_FALLINGFILM_THICK_IN": 121,
+    "ZONE_ISOT_U_BTUHRFT2F": 122,
+    "ZONE_TS_LIQ_FLOW_LBHR": 123,
+    "ZONE_TS_VQUALITY": 124,
+    "ZONE_TS_PR_GAS2": 125,
+    "ZONE_TS_PR_LIQ2": 126,
+    "ZONE_TS_FC_U_BTUHRFT2F": 127,
+    "ZONE_TS_NB_U_BTUHRFT2F": 128,
+    "ZONE_SS_LIQ_FLOW_LBHR": 129,
+    "ZONE_SS_VQUALITY": 130,
+    "ZONE_SS_PR_GAS2": 131,
+    "ZONE_SS_PR_LIQ2": 132,
+    "ZONE_SS_TSAT2_R": 133,
+    "ZONE_SS_DTSAT_R": 134,
+    "ZONE_SS_PSAT2_PSIA": 135,
+    "ZONE_SS_DPSAT_PSI": 136,
+    "ZONE_SS_FC_U_BTUHRFT2F": 137,
+    "ZONE_SS_NB_U_BTUHRFT2F": 138,
+    "HC_TUBE_PROCESS_TYPE": 139,
+    "HC_TUBE_PRESS_PSIA": 140,
+    "HC_TUBE_TEMP_R": 141,
+    "HC_TUBE_ENTH_BTUHR": 142,
+    "HC_TUBE_VAP_LBMOLHR": 143,
+    "HC_TUBE_LIQ_LBMOLHR": 144,
+    "HC_TUBE_LATENTH_BTULB": 145,
+    "HC_TUBE_SURFTENS_DYNECM": 146,
+    "HC_TUBE_TC_R": 147,
+    "HC_TUBE_PC_PSIA": 148,
+    "HC_TUBE_GAS_HEATCAP_BTULBF": 149,
+    "HC_TUBE_GAS_VISC_CP": 150,
+    "HC_TUBE_GAS_COND_BTUHRFTF": 151,
+    "HC_TUBE_GAS_DENSITY_LBFT3": 152,
+    "HC_TUBE_GAS_MW": 153,
+    "HC_TUBE_LIQ_HEATCAP_BTULBF": 154,
+    "HC_TUBE_LIQ_VISC_CP": 155,
+    "HC_TUBE_LIQ_COND_BTUHRFTF": 156,
+    "HC_TUBE_LIQ_DENSITY_LBFT3": 157,
+    "HC_TUBE_LIQ_MW": 158,
+    "HC_TUBE_GAS_SONIC_FTS": 159,
+    "HC_SHELL_PROCESS_TYPE": 160,
+    "HC_SHELL_PRESS_PSIA": 161,
+    "HC_SHELL_TEMP_R": 162,
+    "HC_SHELL_ENTH_BTUHR": 163,
+    "HC_SHELL_VAP_LBMOLHR": 164,
+    "HC_SHELL_LIQ_LBMOLHR": 165,
+    "HC_SHELL_LATENTH_BTULB": 166,
+    "HC_SHELL_SURFTENS_DYNECM": 167,
+    "HC_SHELL_TC_R": 168,
+    "HC_SHELL_PC_PSIA": 169,
+    "HC_SHELL_GAS_HEATCAP_BTULBF": 170,
+    "HC_SHELL_GAS_VISC_CP": 171,
+    "HC_SHELL_GAS_COND_BTUHRFTF": 172,
+    "HC_SHELL_GAS_DENSITY_LBFT3": 173,
+    "HC_SHELL_GAS_MW": 174,
+    "HC_SHELL_LIQ_HEATCAP_BTULBF": 175,
+    "HC_SHELL_LIQ_VISC_CP": 176,
+    "HC_SHELL_LIQ_COND_BTUHRFTF": 177,
+    "HC_SHELL_LIQ_DENSITY_LBFT3": 178,
+    "HC_SHELL_LIQ_MW": 179,
+    "HC_SHELL_GAS_SONIC_FTS": 180,
+    "HC_G_CUTTING_METHOD": 181,
+    "HC_G_TWALL_TYP": 182,
+    "HC_G_SWALL_TYP": 183,
+    "HC_G_NCUT_PTS": 184,
+    "HC_G_CT_CURRENT_ID": 185,
+    "HC_G_TUB_VP_SLOPE": 186,
+    "HC_G_SHL_VP_SLOPE": 187,
+    "SPEC_MOLE_RATE": 0,
+    "SPEC_MASS_RATE": 1,
+    "SPEC_LIQ_VOL_RATE": 2,
+    "SPEC_VAP_VOL_RATE": 3,
+    "SPEC_COMP_MOLE_RATE": 0,
+    "SPEC_COMP_MASS_RATE": 1,
+    "SPEC_COMP_LIQ_VOL": 2,
+    "SPEC_COMP_VAP_VOL": 3,
+    "SPEC_COMP_MOLE_FRAC": 4,
+    "SPEC_COMP_MASS_FRAC": 5,
+    "SPEC_COMP_LIQ_VOL_FRAC": 6,
+    "SPEC_COMP_VAP_VOL_FRAC": 7,
+    "SPEC_COMP_MOLE_PERCENT": 8,
+    "SPEC_COMP_MASS_PERCENT": 9,
+    "SPEC_COMP_LIQ_VOL_PERCENT": 10,
+    "SPEC_COMP_VAP_VOL_PERCENT": 11,
+    "SPEC_COMP_MOLE_PPM": 12,
+    "SPEC_COMP_MASS_PPM": 13,
+    "SPEC_COMP_LIQ_VOL_PPM": 14,
+    "SPEC_COMP_VAP_VOL_PPM": 15,
+    "SPEC_COMP_CONCENTRATION": 16,
+    "SPEC_COMP_K_VALUES": 17,
+    "SPEC_COMP_ACTIVITY_COEFF": 18,
+    "SPEC_COMP_FUGACITY_COEFF": 19,
+    "FLASH_SPEC_NOP": 0,
+    "FLASH_SPEC_TP": 1,
+    "FLASH_SPEC_VP_FLASH": 2,
+    "FLASH_SPEC_VT_FLASH": 3,
+    "FLASH_SPEC_HP_FLASH": 4,
+    "STREAM_STATUS_NO_ERROR": 0,
+    "STREAM_STATUS_NO_MEM": 1,
+    "STREAM_STATUS_PARAMETER_TYPE_MISMATCH": 2,
+    "STREAM_STATUS_PARAMETER_INVALID": 3,
+    "STREAM_STATUS_FLASH_CALC_FAILED": 4,
+    "DATAMAP_STATUS_NO_ERROR": 0,
+    "DATAMAP_STATUS_FAILED": 1,
+    "DATAMAP_STATUS_MISSING": 2,
+    "DATAMAP_STATUS_MISSING_BYREF": 3,
+    "DATAMAP_STATUS_MAX_OVERFLOW": 4,
+    "DATAMAP_STATUS_BAD_INDEX": 5,
+    "DATAMAP_STATUS_BAD_ITEM_INDEX": 6,
+    "DATAMAP_STATUS_CELL_RANGE": 7,
+    "DATAMAP_STATUS_WRONG_VALUE_TYPE": 8,
+    "DATAMAP_STATUS_BAD_UNIT_ID": 9,
+    "DATAMAP_DIRECTION_NONE": 0,
+    "DATAMAP_DIRECTION_TO_SPREADSHEET": 1,
+    "DATAMAP_DIRECTION_TO_CHEMCAD": 2,
+    "DATAMAP_DIRECTION_DATA_RECONCILIATION": 3,
+    "DATAMAP_TYPE_STREAM": 0,
+    "DATAMAP_TYPE_UNIT": 1,
+    "DATAMAP_TYPE_MISC": 2,
+    "DATAMAP_OBJECT_TEMPERATURE": 0,
+    "DATAMAP_OBJECT_PRESSURE": 1,
+    "DATAMAP_MODE_CHEMCAD": 0,
+    "DATAMAP_MODE_EXTERNAL": 1,
+    "VBERR_NONE": 0,
+    "VBERR_STARTUP": 1,
+    "VBERR_LICENSE": 2,
+    "VBERR_LICENSE_NO_ERROR": 0,
+    "VBERR_LICENSE_NONE_FOUND": 1,
+    "VBERR_LICENSE_LOST": 2,
+    "VBERR_VOLUNTARY_RELEASE": 3,
+    "VBLIC_NO_PRODUCT": 0,
+    "VBLIC_CC_STEADY_STATE": 1,
+    "VBLIC_CC_BATCH": 2,
+    "VBLIC_CC_THERM": 3,
+    "VBLIC_CC_FLASH": 4,
+    "VBLIC_CC_DYNAMICS": 5,
+    "VBLIC_CC_POLYMER": 6,
+    "VBLIC_CC_SAFETY_NET": 7,
+    "VBLIC_SEAT": 8,
+    "VBLIC__KOPETZ_HTXR": 9,
+    "VBLIC__CC_MULTISEAT": 10,
+    "VBLIC__CCFERST_FAI": 11,
+    "HTXR_SHELL_AND_TUBE": 0,
+    "HTXR_DOUBLE_PIPE": 1,
+    "HTXR_PLATE_AND_FRAME": 2,
+    "HTXR_AIRCOOLER": 3,
+    "HTXR_REPORT_ZONE": 0,
+    "HTXR_RESULTS": 1,
+    "HTXR_HEATCURVE": 2,
+    "HTXR_HEATCURVE_PROP": 3
+  }
+}

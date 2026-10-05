@@ -1,0 +1,9 @@
+[mcp_servers.chemcad]
+command = 'C:\path\to\chemcad-mcp\.venv\Scripts\python.exe'
+args = ['-m', 'chemcad_mcp.server']
+startup_timeout_sec = 45
+tool_timeout_sec = 200
+enabled = true
+
+[mcp_servers.chemcad.env]
+CHEMCAD_MCP_TIMEOUT = '180'

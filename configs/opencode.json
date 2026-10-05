@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "chemcad": {
+      "type": "local",
+      "command": ["C:\\path\\to\\chemcad-mcp\\.venv\\Scripts\\python.exe", "-m", "chemcad_mcp.server"],
+      "enabled": true,
+      "timeout": 200000,
+      "environment": {"CHEMCAD_MCP_TIMEOUT": "180"}
+    }
+  }
+}
