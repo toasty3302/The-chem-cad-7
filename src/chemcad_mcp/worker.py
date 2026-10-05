@@ -12,6 +12,8 @@ import traceback
 from pathlib import Path
 
 from .api import SURFACES, describe_api
+from .engineering import component_vector
+from .installation import parameter_definitions
 from .windows import ensure_windows_environment
 
 BTU_HR_TO_W = 1055.05585262 / 3600
@@ -409,6 +411,264 @@ class Automation:
             else "CHEMCAD internal units",
         }
 
+    def unitop_catalog(self, unitop_id, include_values=True):
+        self.valid_id(unitop_id, unitop=True)
+        header = self.unitop_parameter(unitop_id, 1, user_units=False)["value"]
+        if header != unitop_id:
+            raise RuntimeError(
+                "Unsupported native specification layout: equipment-ID header did not match; named configuration is disabled"
+            )
+        category = self.ref(self.com.VT_BSTR, "")
+        self.call("unitops", "GetUnitOpCategoryByID", unitop_id, category)
+        definitions = parameter_definitions(category.value)
+        parameters = []
+        for definition in definitions:
+            entry = dict(definition)
+            unit = self.ref(self.com.VT_BSTR, "")
+            converted = self.ref(self.com.VT_R4, 0.0)
+            code = self.call(
+                "engineering_units",
+                "FromInternalUnitToCurUserUnit",
+                entry["engineering_unit_id"],
+                0.0,
+                converted,
+                unit,
+            )
+            entry["current_units"] = unit.value or (
+                "dimensionless" if entry["engineering_unit_id"] == 0 else None
+            )
+            entry["unit_conversion_code"] = code
+            if include_values:
+                entry["value"] = self.unitop_parameter(
+                    unitop_id, entry["parameter_id"]
+                )["value"]
+            parameters.append(entry)
+        return {
+            "unitop_id": unitop_id,
+            "category": category.value,
+            "parameters": parameters,
+            "note": "Names/units come from this licensed installation. Enum mode meanings are model-specific; do not guess them. Required flags are not mode-specific validation.",
+        }
+
+    def configure_unitop(self, unitop_id, parameters, user_units=True):
+        self.require_simulation(write=True)
+        if not parameters:
+            raise ValueError("Provide at least one parameter")
+        catalog = self.unitop_catalog(unitop_id, include_values=False)
+        changes, seen = [], set()
+        for key, value in parameters.items():
+            matches = [
+                p
+                for p in catalog["parameters"]
+                if str(p["parameter_id"]) == str(key) or p["name"] == key
+            ]
+            if len(matches) != 1:
+                raise ValueError(
+                    f"Unknown or ambiguous parameter {key!r}; use unitop_parameter_catalog"
+                )
+            entry = matches[0]
+            pid = entry["parameter_id"]
+            if pid in seen:
+                raise ValueError(f"Parameter supplied more than once: {key}")
+            finite(value, str(key))
+            if entry["integer"] and value != int(value):
+                raise ValueError(
+                    f"{key} must be an integer (mode/enum meanings require equipment documentation)"
+                )
+            seen.add(pid)
+            old = self.unitop_parameter(unitop_id, pid, user_units)["value"]
+            changes.append((pid, value, old))
+        written = []
+        try:
+            for pid, value, old in changes:
+                # Include the current parameter in rollback even if its readback fails.
+                written.append((pid, old))
+                self.unitop_parameter(unitop_id, pid, user_units, value)
+        except Exception as error:
+            rollback_errors = []
+            for pid, old in reversed(written):
+                try:
+                    self.unitop_parameter(unitop_id, pid, user_units, old)
+                except Exception as rollback_error:
+                    rollback_errors.append(f"{pid}: {rollback_error}")
+            raise RuntimeError(
+                f"Configuration failed: {error}; rollback errors: {rollback_errors}; edits are unsaved"
+            ) from error
+        return {
+            "unitop_id": unitop_id,
+            "parameters": [
+                self.unitop_parameter(unitop_id, pid, user_units)
+                for pid, value, old in changes
+            ],
+            "saved": False,
+        }
+
+    def write_stream_by_component(
+        self,
+        stream_id,
+        temperature_k,
+        pressure_pa,
+        component_flows_kmol_h,
+        reflash=True,
+    ):
+        vector = component_vector(self.components(), component_flows_kmol_h)
+        return self.write_stream(
+            stream_id, temperature_k, pressure_pa, vector, reflash=reflash
+        )
+
+    def write_feed(
+        self, stream_id, temperature_k, pressure_pa, total_flow_kmol_h, mole_fractions
+    ):
+        self.require_simulation(write=True)
+        self.valid_id(stream_id)
+        source, target = self.ref(self.com.VT_I2), self.ref(self.com.VT_I2)
+        self.call("flowsheet", "GetSourceAndTargetForStream", stream_id, source, target)
+        if source.value != 0:
+            raise ValueError("write_feed only accepts boundary feeds (source_unitop=0)")
+        if finite(total_flow_kmol_h, "total_flow_kmol_h") <= 0:
+            raise ValueError("Total feed flow must be positive")
+        fractions = component_vector(self.components(), mole_fractions)
+        if any(v < 0 for v in fractions) or abs(sum(fractions) - 1.0) > 1e-6:
+            raise ValueError(
+                "Mole fractions must be nonnegative and sum to 1 (not percentages)"
+            )
+        return self.write_stream(
+            stream_id,
+            temperature_k,
+            pressure_pa,
+            [v * total_flow_kmol_h for v in fractions],
+        )
+
+    def configure_reactor(
+        self,
+        unitop_id,
+        stoichiometry,
+        key_component,
+        conversion,
+        thermal_mode,
+        temperature=None,
+        pressure=None,
+        user_units=True,
+    ):
+        self.require_simulation(write=True)
+        catalog = self.unitop_catalog(unitop_id, include_values=False)
+        if catalog["category"].strip() != "REAC":
+            raise ValueError(
+                "This tool requires a stoichiometric REAC unit, not GIBS/EREA"
+            )
+        components = self.components()
+        if len(components) > 45:
+            raise ValueError("This prototype supports up to 45 components for REAC")
+        coefficients = component_vector(components, stoichiometry)
+        key = component_vector(components, {str(key_component): 1.0}).index(1.0)
+        if coefficients[key] >= 0 or not any(v > 0 for v in coefficients):
+            raise ValueError(
+                "Key component must be a reactant (negative coefficient); include positive products"
+            )
+        if not 0 <= finite(conversion, "conversion") <= 1:
+            raise ValueError("Conversion must be in [0,1]")
+        parameters = {
+            "thermal_mode": thermal_mode,
+            "key_component": key + 1,
+            "frac_conversion": conversion,
+        }
+        parameters.update({str(50 + i): value for i, value in enumerate(coefficients)})
+        if temperature is not None:
+            parameters["temperature"] = temperature
+        if pressure is not None:
+            parameters["reactor_pressure"] = pressure
+        result = self.configure_unitop(unitop_id, parameters, user_units)
+        result["warnings"] = [
+            "Verify atom balance and documented thermal-mode enum yourself; species molar flow is not conserved across a reaction."
+        ]
+        return result
+
+    def results(self, stream_ids=None):
+        summary = self.summary()
+        ids = (
+            stream_ids
+            if stream_ids is not None
+            else [s["id"] for s in summary["streams"]]
+        )
+        if len(ids) > 200 or len(set(ids)) != len(ids):
+            raise ValueError("Select at most 200 distinct streams")
+        data = {sid: self.read_stream(sid) for sid in ids}
+        summary["stream_results"] = list(data.values())
+        balances = []
+        for unit in summary["unitops"]:
+            if not set(unit["inlets"] + unit["outlets"]).issubset(data):
+                continue
+            inlet_h = sum(data[s]["enthalpy_rate"] for s in unit["inlets"])
+            outlet_h = sum(data[s]["enthalpy_rate"] for s in unit["outlets"])
+            balances.append(
+                {
+                    "unitop_id": unit["id"],
+                    "category": unit["category"],
+                    "inlet_enthalpy_w": inlet_h,
+                    "outlet_enthalpy_w": outlet_h,
+                    "net_energy_into_streams_w": outlet_h - inlet_h,
+                    "component_flow_delta_kmol_h": [
+                        {
+                            "id": c["id"],
+                            "name": c["name"],
+                            "out_minus_in": sum(
+                                data[s]["components"][i]["flow"]
+                                for s in unit["outlets"]
+                            )
+                            - sum(
+                                data[s]["components"][i]["flow"] for s in unit["inlets"]
+                            ),
+                        }
+                        for i, c in enumerate(summary["components"])
+                    ],
+                }
+            )
+        summary["unitop_stream_balances"] = balances
+        summary["balance_note"] = (
+            "Enthalpy differences are heat minus shaft work into streams, NOT closure residuals. Supply external duties/work separately. Reaction species and total moles need not be conserved."
+        )
+        return summary
+
+    def sensitivity(self, unitop_id, parameter_id, values, stream_ids, user_units=True):
+        self.require_simulation(write=True)
+        if not 1 <= len(values) <= 40 or not 1 <= len(stream_ids) <= 20:
+            raise ValueError("Use 1..40 sweep values and 1..20 output stream IDs")
+        for value in values:
+            finite(value, "sweep value")
+        for stream_id in stream_ids:
+            self.valid_id(stream_id)
+        original = self.unitop_parameter(unitop_id, parameter_id, user_units)["value"]
+        points, restored = [], None
+        try:
+            for value in values:
+                self.unitop_parameter(unitop_id, parameter_id, user_units, value)
+                run = self.run_simulation()
+                errors = [u for u in self.summary()["unitops"] if u["error_code"]]
+                converged = run["success"] and not errors
+                points.append(
+                    {
+                        "value": value,
+                        "run": run,
+                        "unitop_errors": errors,
+                        "usable": converged,
+                        "streams": [self.read_stream(sid) for sid in stream_ids]
+                        if converged
+                        else [],
+                    }
+                )
+        finally:
+            self.unitop_parameter(unitop_id, parameter_id, user_units, original)
+            restored = self.run_simulation()
+        return {
+            "unitop_id": unitop_id,
+            "parameter_id": parameter_id,
+            "points": points,
+            "restored_parameter_value": original,
+            "baseline_run": restored,
+            "saved": False,
+            "warning": "Baseline parameter is restored and rerun; calculated outputs may differ from their pre-sweep values. Inspect baseline run status before continuing.",
+        }
+
     def run_simulation(self, mode="steady_state", unitop_ids=None):
         self.require_simulation(write=True)
         actual_mode = self.call("server", "GetSimulationMode")
@@ -619,6 +879,13 @@ OPERATIONS = {
     "read_stream",
     "write_stream",
     "unitop_parameter",
+    "unitop_catalog",
+    "configure_unitop",
+    "write_stream_by_component",
+    "write_feed",
+    "configure_reactor",
+    "results",
+    "sensitivity",
     "run_simulation",
     "flash_tp",
     "invoke",

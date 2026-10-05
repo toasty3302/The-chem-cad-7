@@ -84,3 +84,70 @@ The existing IDA sessions had unrelated databases open and were preserved.
 
 Full native numerical algorithms have not been reconstructed. The MCP server
 delegates thermodynamic and simulation calculations to the installed engine.
+
+## Experimental logical-model construction
+
+NXT `.ccsim` models are ZIP containers. The primary CHEMCAD XML describes the
+logical component list, equipment and stream endpoints; `.flwshtcc7` contains
+the separate binary graphical drawing. Equipment `ioe` entries contain its own
+ID followed by positive inlet and negative outlet stream IDs. Stream `issdi`
+entries identify stream, source equipment and destination equipment (zero is
+a boundary). Equipment and stream numeric schema-2 fields are opaque; the bridge
+does not interpret/decrypt them. It clones valid prototypes and configures their
+numerical inputs through native COM.
+
+Live tests accepted added logical equipment and connections, including a mixer
+and a heat exchanger from another licensed example. Simulation runs and
+save/reopen preserved the added topology. The heat exchanger's hot/cold duties
+matched an explicitly specified 50 kW transfer. However, the inherited binary
+drawing was not updated. Removing it produced a loadable file without a usable
+flowsheet interface. The public tool therefore retains it, requires explicit
+acknowledgement, and does not claim synchronized graphical construction.
+
+XML-only component addition returned an ID string instead of the correct name.
+The associated `.ppdb` is a Jet database containing pure-property records and
+GUID translations. A 32-bit PowerShell/ADO helper imports ordinary components
+from local licensed donor archives into a temporary copy of that database.
+Ethane, Propane, n-Butane, n-Pentane, n-Hexane and Hydrogen Sulfide were recognized
+by native COM; a new Ethane component also passed a TP flash/enthalpy calculation.
+Imported zero-flow fields, selected names and topology survived save/reopen.
+No vendor databases or numerical records are distributed. Binary interactions,
+custom components, electrolytes and component reordering remain unsupported.
+
+Jet external-database queries failed with "Class not registered" under MCP's
+reduced environment even though opening the destination database worked. Restoring
+`CommonProgramFiles`/`ProgramFiles` from Windows known-folder values in the 32-bit
+helper fixed that path; `WINDIR` is also restored before invoking it.
+
+Installed `$<category>.LAB` files provide specification labels and engineering
+unit IDs. Their positions are not the legacy `Get/PutUnitOpPar` indexes: the
+native specification array includes an equipment-ID header. Compressor efficiency
+is LAB position 4 / native parameter ID 5; heat duty is HTXR position 8 / native
+ID 9. Named tools apply that offset and verify the header before accepting the
+layout. `IEngUnitConversion` supplies current unit labels. A live sensitivity
+sweep varied true compressor efficiency, restored it and reran the baseline.
+The REAC helper also configured and ran an existing stoichiometric example using
+component database IDs mapped to the correct one-based component positions.
+
+This remains interoperability with the licensed simulation engine, not a
+reconstruction of its thermodynamic algorithms or a replacement for engineering
+validation. Inherited control/solver metadata may still refer to original units.
+Use simple templates, disposable outputs and explicit run/error/balance checks.
+
+## Reaction-element and shaft-power validation
+
+An imported component can have a valid name and flash properties yet remain
+outside an inherited Gibbs reactor's reaction-element table. A minimal live
+combustion test initially left 1 kmol/h of newly imported ethane unchanged.
+The supported plaintext `.400` atom matrix and `$ATOM.GRD` rows are now extended
+from the licensed property database's `ATOMS` records. Existing element-column
+definitions/reference factors are retained; a newly introduced element is
+rejected instead of guessed. The ethane combustion check now passes, including
+save/reopen. Low-temperature Gibbs numerical behavior still needs independent
+reactant/atom checks; model creation and a zero error code are not sufficient.
+
+Raw COMP/EXPN actual shaft power is Btu/hour, even when current user units are
+horsepower. A one-compressor live regression check compares native work with
+the SI stream-enthalpy rise. The Btu/hour conversion agrees to floating-point
+precision; interpreting the same raw value as horsepower is wrong by roughly
+2544 times. No engine algorithms or opaque numerical fields were reconstructed.

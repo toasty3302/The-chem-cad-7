@@ -24,6 +24,7 @@ coverage.xml
 junit.xml
 
 # Local research, extracted vendor help, and simulation runs.
+# Keep these ignored if tools recreate them after private artifacts are moved out.
 /work/
 /.firecrawl/
 /output/
@@ -79,6 +80,22 @@ secrets.*.json
 *.til
 *.pdb
 *.dmp
+*.ppdb
+*.flwshtcc7
+*.eqs
+*.str
+*.tlk
+*.sf
+
+# Private course/plant documents and measurement workbooks.
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.xlsm
+*.ppt
+*.pptx
 
 # Logs, temporary files, config backups, and editor/OS state.
 *.log
