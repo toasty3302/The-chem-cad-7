@@ -235,11 +235,6 @@ under `work/validation-*` and the report is written to `docs/live-validation.jso
 files. `scripts/probe_com.py` performs direct native reads for diagnosis.
 See `docs/reverse-engineering.md` for findings and evidence.
 
-## Publishing
+## Why did I do this
 
-Source, config templates, `.python-version`, `uv.lock`, and the bundled
-`src/chemcad_mcp/api.json` belong in Git. `.gitignore` excludes local virtual
-environments, generated client configs, credentials, validation output,
-simulation copies, vendor binaries/help/databases, and debugger artifacts.
-Ignore rules do not remove files already tracked by Git; check `git status`
-and staged changes before publishing.
+I have better things to do than CHEME classes ¯\_(ツ)_/¯
